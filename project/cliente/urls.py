@@ -6,5 +6,8 @@ from . import views
 app_name = "cliente"
 
 urlpatterns = [
-    path('', views.home, name="index"),
+    path("", views.home, name="index"),
+    path("crearClientesVarios/", views.crearClientesVarios),
+    path("busqueda/", views.busqueda),
+    path("crear/", views.crear),
 ]

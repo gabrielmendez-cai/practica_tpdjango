@@ -6,7 +6,20 @@
 
 
 {% block contenido %}
-    <a href="{% url 'core:index' %}">volver al inicio</a>
+    {% for cliente in clientes %}
+       <h2>{{cliente.apellido}}</h2>
+       <p>{{cliente.nombre}}</p>
+       {% if  cliente.nacimiento %}
+            <p>{{cliente.nacimiento}}</p>
+       {% else %}
+            <p>no esta registrado su fecha de naciemiento</p>
+       {% endif %}
+       {% if cliente.pais_origen %}
+            <p>{{ cliente.pais_origen}}</p>
+       {% else %}
+            <p>no esta registrado su pais</p>
+       {% endif %}
+    {% endfor %}
 {% endblock contenido %}
 
 
