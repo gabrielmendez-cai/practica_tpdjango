@@ -2,7 +2,7 @@ from django.db import models
 
 
 class Pais(models.Model):
-    nombre = models.CharField(max_length=100, unique=True)
+    nombre = models.CharField(max_length=100)
 
     def __str__(self):
         return self.nombre
@@ -16,3 +16,11 @@ class Cliente(models.Model):
 
     def __str__(self):
         return f"{self.nombre} {self.apellido}"
+    
+
+
+class Estudios(models.Model):
+    estudios_cursados = models.CharField(max_length=50)
+
+    def __str__(self):
+        return f"Nivel {self.estudios_cursados}"

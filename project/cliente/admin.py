@@ -7,3 +7,5 @@ from . import models
 
 admin.site.register(models.Pais)
 admin.site.register(models.Cliente)
+admin.site.register(models.Estudios)
+

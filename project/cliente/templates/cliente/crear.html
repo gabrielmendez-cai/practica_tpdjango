@@ -8,7 +8,8 @@
 {% block contenido %}
 <form method="post">
     {% csrf_token %}
-    {{form.as_p}}
+    {{ form_cliente.as_p }}
+    {{ form_estudio.as_p }}
     <button type="submit">Guardar</button>
 
 </form>

@@ -5,4 +5,11 @@ from . import models
 class ClienteForm(forms.ModelForm):
     class Meta:
         model = models.Cliente
-        fields = ["nombre", "apellido", "nacimiento", "pais_origen"]
+        fields = "__all__"
+        
+
+
+class EstudioForm(forms.ModelForm):
+    class Meta:
+        model = models.Estudios
+        fields = ["estudios_cursados"]
