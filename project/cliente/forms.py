@@ -6,6 +6,9 @@ class ClienteForm(forms.ModelForm):
     class Meta:
         model = models.Cliente
         fields = "__all__"
+
+class ClienteBuscarForm(forms.ModelForm):
+        sexo = forms.CharField()
         
 
 

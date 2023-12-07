@@ -2,6 +2,7 @@ from datetime import date
 
 from django.shortcuts import redirect, render
 from . import models
+from .forms import ClienteBuscarForm
 
 
 
@@ -23,10 +24,10 @@ def crearClientesVarios(request):
     p3.save()
     p4.save()
     p5.save()
-    c1 = models.Cliente(nombre="Almendra", apellido="Ruiseñor", nacimiento=date(2015, 1, 1), pais_origen=p1)
-    c2 = models.Cliente(nombre="Giordana", apellido="Tapello", nacimiento=date(2005, 2, 2), pais_origen=p2)
-    c3 = models.Cliente(nombre="Macarena", apellido="Lito", nacimiento=date(1990, 1, 1), pais_origen=p3)
-    c4 = models.Cliente(nombre="Jhiordana", apellido="Perez", nacimiento=date(2005, 1, 1), pais_origen=None)
+    c1 = models.Cliente(nombre="Almendra", apellido="Ruiseñor", sexo = "femenino" ,nacimiento=date(2015, 1, 1), pais_origen=p1)
+    c2 = models.Cliente(nombre="Giordana", apellido="Tapello", sexo = "femenino", nacimiento=date(2005, 2, 2), pais_origen=p2)
+    c3 = models.Cliente(nombre="Macarena", apellido="Lito", sexo = "femenino", nacimiento=date(1990, 1, 1), pais_origen=p3)
+    c4 = models.Cliente(nombre="Jorge", apellido="Perez", sexo = "masculino", nacimiento=date(2005, 1, 1), pais_origen=None)
     c1.save()
     c2.save()
     c3.save()
@@ -44,14 +45,23 @@ def busqueda(request):
 
     # país de origen vacío (null - None)
     cliente_pais = models.Cliente.objects.filter(pais_origen=None)
+    
+    cliente_sexo = models.Cliente.objects.filter(sexo= "masculino")
 
     context = {
         "cliente_nombre": cliente_nombre,
         "cliente_nacimiento": cliente_nacimiento,
         "cliente_pais": cliente_pais,
+        "cliente_sexo": cliente_sexo,
     }
     return render(request, "cliente/busqueda.html", context)
 
+def cliente_sexo_view(request):
+    if request.method == "GET":
+        form = ClienteBuscarForm()
+        return render (request,"cliente/busqueda.html",context={"form":form})
+    else:
+        pass
  
 from . import forms
 from .forms import ClienteForm, EstudioForm 

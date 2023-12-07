@@ -5,23 +5,33 @@
 {% endblock contenido_titulo %}
 
 
-{% block contenido %}
+{% block contenido1 %}
     <h2>cliente nombre</h2>
     {% for cliente in cliente_nombre %}
         <p>{{cliente}}</p>
     
     {% endfor %}
+{% endblock contenido1 %}    
 
-    <h2>cliente nacimiento</h2>
+    {% block contenido2 %}
+    <h2>cliente Sexo</h2>
+    {% for cliente in cliente_sexo %}
+        <p>{{cliente}}</p>
+    
+    {% endfor %}
+    
+{% endblock contenido2 %}
+    
+<h2>cliente nacimiento</h2>
     {% for cliente in cliente_nacimiento %}
         <p>{{cliente}}</p>
     
     {% endfor %}
-
+{% block contenido3 %}
     <h2>cliente Pais None</h2>
     {% for cliente in cliente_pais %}
         <p>{{cliente}}</p>
     
     {% endfor %}
-{% endblock contenido %}
+{% endblock contenido3 %}
 

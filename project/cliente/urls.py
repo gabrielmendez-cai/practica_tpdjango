@@ -10,4 +10,5 @@ urlpatterns = [
     path("crearClientesVarios/", views.crearClientesVarios),
     path("busqueda/", views.busqueda),
     path("crear/", views.crear),
+    path("/", views.crear),
 ]
